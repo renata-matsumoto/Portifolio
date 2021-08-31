@@ -33,13 +33,13 @@ class _ProjetosState extends State<Projetos> {
                               BoxShadow(
                                   color: Color(0xFF07f2c7),
                                   offset: Offset(0, 0),
-                                  blurRadius: 2.0,
-                                  spreadRadius: 2.0),
+                                  blurRadius: 4.0,
+                                  spreadRadius: 4.0),
                               BoxShadow(
                                   color: Color(0xFFF2F2F2),
                                   offset: Offset(0, 0),
-                                  blurRadius: 4.0,
-                                  spreadRadius: 4.0),
+                                  blurRadius: 8.0,
+                                  spreadRadius: 8.0),
                             ],
                           ))),
                   Center(
@@ -55,9 +55,8 @@ class _ProjetosState extends State<Projetos> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                      // height: 100,
                       alignment: Alignment.topCenter,
-                      child: Text('Projeto - Calculadora - JS ',
+                      child: Text('Projeto Calculadora - JS ',
                           style: TextStyle(
                             color: Color(0xFF07F2C7),
                             fontSize: 30,
@@ -65,13 +64,13 @@ class _ProjetosState extends State<Projetos> {
                               BoxShadow(
                                   color: Color(0xFF07f2c7),
                                   offset: Offset(0, 0),
-                                  blurRadius: 2.0,
-                                  spreadRadius: 2.0),
+                                  blurRadius: 4.0,
+                                  spreadRadius: 4.0),
                               BoxShadow(
                                   color: Color(0xFFF2F2F2),
                                   offset: Offset(0, 0),
-                                  blurRadius: 4.0,
-                                  spreadRadius: 4.0),
+                                  blurRadius: 8.0,
+                                  spreadRadius: 8.0),
                             ],
                           ))),
                   Center(
@@ -98,13 +97,13 @@ class _ProjetosState extends State<Projetos> {
                               BoxShadow(
                                   color: Color(0xFff2f2f2),
                                   offset: Offset(0, 0),
-                                  blurRadius: 2.0,
-                                  spreadRadius: 2.0),
+                                  blurRadius: 4.0,
+                                  spreadRadius: 4.0),
                               BoxShadow(
                                   color: Color(0xFFF2F2F2),
                                   offset: Offset(0, 0),
-                                  blurRadius: 4.0,
-                                  spreadRadius: 4.0),
+                                  blurRadius: 6.0,
+                                  spreadRadius: 6.0),
                             ],
                           ))),
                   Center(
@@ -127,13 +126,13 @@ class _ProjetosState extends State<Projetos> {
                               BoxShadow(
                                   color: Color(0xFF07f2c7),
                                   offset: Offset(0, 0),
-                                  blurRadius: 2.0,
-                                  spreadRadius: 2.0),
+                                  blurRadius: 4.0,
+                                  spreadRadius: 4.0),
                               BoxShadow(
                                   color: Color(0xFFF2F2F2),
                                   offset: Offset(0, 0),
-                                  blurRadius: 4.0,
-                                  spreadRadius: 4.0),
+                                  blurRadius: 8.0,
+                                  spreadRadius: 8.0),
                             ],
                           ))),
                   Center(
@@ -149,7 +148,7 @@ class _ProjetosState extends State<Projetos> {
                       height: 100,
                       alignment: Alignment.topCenter,
                       padding: EdgeInsets.all(20),
-                      child: Text('Projeto MotoApp - React',
+                      child: Text('Projeto MotoApp React',
                           style: TextStyle(
                             color: Color(0xFFf22259),
                             fontSize: 30,
