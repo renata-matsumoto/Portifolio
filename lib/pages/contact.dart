@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Contact extends StatefulWidget {
@@ -9,13 +9,45 @@ class Contact extends StatefulWidget {
 }
 
 class _ContactState extends State<Contact> {
+  GoogleMapController? mapController;
+  Set<Marker> markers = new Set<Marker>();
+  double lat = -22.2175974;
+  double long = -49.9487507;
+
+  GoogleMapController? _controller;
+
+  Future<void> _onMapCreate(GoogleMapController controller) async {
+    _controller = controller;
+    mapController = controller;
+    String value = await DefaultAssetBundle.of(context)
+        .loadString('assets/map/map_style.json');
+    _controller?.setMapStyle(value);
+  }
+
   @override
   Widget build(BuildContext context) {
-    // String nome;
-    // String email;
-
     return Scaffold(
         appBar: AppBar(
+          title: TextField(
+            onSubmitted: (value) {
+              double lat = -22.2175974;
+              double long = -49.9487507;
+              LatLng position = LatLng(lat, long);
+              mapController?.moveCamera(CameraUpdate.newLatLng(position));
+              final Marker marker = Marker(
+                markerId: new MarkerId('1234567'),
+                position: const LatLng(0.0, 0.0),
+                infoWindow: InfoWindow(
+                  title: 'RM',
+                  snippet: 'Marilia/SP',
+                ),
+              );
+
+              setState(() {
+                markers.add(marker);
+              });
+            },
+          ),
           backgroundColor: Colors.black87,
         ),
         body: Container(
@@ -50,6 +82,24 @@ class _ContactState extends State<Contact> {
                             )),
                       ),
                       SizedBox(height: 20),
+                      Container(
+                        height: 300,
+                        width: 450,
+                        child: GoogleMap(
+                            onMapCreated: _onMapCreate,
+                            onCameraMove: (data) {
+                              print(data);
+                            },
+                            onTap: (position) {
+                              print(position);
+                            },
+                            initialCameraPosition: CameraPosition(
+                              target: LatLng(lat, long),
+                              zoom: 11.0,
+                            ),
+                            markers: markers),
+                      ),
+                      SizedBox(height: 52),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
@@ -139,27 +189,31 @@ class _ContactState extends State<Contact> {
                         ),
                       ),
                       SizedBox(height: 8),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(left: 150),
-                            child: OutlinedButton(
-                              onPressed: () async => await launch(
-                                  "https://wa.me/${5511972345183}?text=Por favor, entre em contato."),
-                              style: OutlinedButton.styleFrom(
-                                  primary: Color(0xff07F2C7),
-                                  side: BorderSide(
-                                      width: 2, color: Color(0xFFF22259))),
-                              child: Text(
-                                'Enviar',
-                                style: TextStyle(
-                                    fontSize: 16, color: Color(0xFFF22259)),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Container(
+                              alignment: Alignment.centerRight,
+                              // margin: EdgeInsets.only(left: 150),
+                              child: OutlinedButton(
+                                onPressed: () async => await launch(
+                                    "https://wa.me/${5511972345183}?text=Por favor, entre em contato."),
+                                style: OutlinedButton.styleFrom(
+                                    primary: Color(0xff07F2C7),
+                                    side: BorderSide(
+                                        width: 2, color: Color(0xFFF22259))),
+                                child: Text(
+                                  'Enviar',
+                                  style: TextStyle(
+                                      fontSize: 16, color: Color(0xFFF22259)),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ]),
               ],
