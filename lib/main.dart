@@ -3,20 +3,20 @@ import 'package:mini_projeto/pages/primeira_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(App());
+  runApp(MyApp());
 }
 
-class App extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Renata',
-      home: PrimeiraPage(),
-      theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme(),
-        primarySwatch: Colors.green,
-      ),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Renata',
+        home: PrimeiraPage(),
+        theme: ThemeData(
+          textTheme: GoogleFonts.poppinsTextTheme(),
+          primarySwatch: Colors.green,
+        ));
   }
 }
