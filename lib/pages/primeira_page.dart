@@ -58,19 +58,6 @@ class _PrimeiraPageState extends State<PrimeiraPage> {
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1)),
             )),
-        // Container(
-        //   alignment: Alignment.topRight,
-        //   padding: EdgeInsets.all(10),
-        //   child: FloatingActionButton(
-        //     backgroundColor: Color(0xFF0FBF9F),
-        //     onPressed: () async =>
-        //         await launch("https://wa.me/${5511972345183}?text=Hello"),
-        //     child: FaIcon(
-        //       FontAwesomeIcons.comment,
-        //       color: Color(0xffF2F2F2),
-        //     ),
-        //   ),
-        // ),
       ]),
       drawer: Drawer(
         child: Container(
@@ -132,7 +119,7 @@ class _PrimeiraPageState extends State<PrimeiraPage> {
                   )),
               Container(
                 color: Colors.black12,
-                height: 500,
+                height: 350,
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.end,
